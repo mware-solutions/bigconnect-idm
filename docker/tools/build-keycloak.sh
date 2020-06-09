@@ -3,7 +3,6 @@
 ###########################
 # Build/download Keycloak #
 ###########################
-
 if [ "$GIT_REPO" != "" ]; then
     if [ "$GIT_BRANCH" == "" ]; then
         GIT_BRANCH="master"

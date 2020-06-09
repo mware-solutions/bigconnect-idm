@@ -123,7 +123,7 @@ public class BrowserSecurityHeaders {
             first = true;
 
             build("frame-src", frameSrc);
-//            build("frame-ancestors", frameAncestors);
+            build("frame-ancestors", frameAncestors);
             build("object-src", objectSrc);
 
             return sb.toString();
