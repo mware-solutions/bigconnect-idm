@@ -27,7 +27,7 @@ file_env() {
     unset "$fileVar"
 }
 
-SYS_PROPS=""
+SYS_PROPS="--debug 9797 "
 
 ##################
 # Add admin user #

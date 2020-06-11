@@ -140,6 +140,7 @@ public class OAuthRequestAuthenticator {
     }
 
     protected String getRedirectUri(String state) {
+        System.out.println("11111111111111111111111111111111111111111111");
         String url = getRequestUrl();
         log.debugf("callback uri: %s", url);
       
@@ -209,6 +210,7 @@ public class OAuthRequestAuthenticator {
     }
 
     protected AuthChallenge loginRedirect() {
+        System.out.println("0000000000000000");
         final String state = getStateCode();
         final String redirect =  getRedirectUri(state);
         if (redirect == null) {
@@ -394,7 +396,7 @@ public class OAuthRequestAuthenticator {
             try {
                 URL url = new URL(originalUri);
                 Map.Entry<String, String> rule =  rewriteRules.entrySet().iterator().next();
-                StringBuilder redirectUriBuilder = new StringBuilder("https://");
+                StringBuilder redirectUriBuilder = new StringBuilder("https");
                 redirectUriBuilder.append("://"+ url.getAuthority());
                 redirectUriBuilder.append(url.getPath().replaceFirst(rule.getKey(), rule.getValue()));
                 return redirectUriBuilder.toString();
