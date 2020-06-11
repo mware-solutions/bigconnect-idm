@@ -394,7 +394,7 @@ public class OAuthRequestAuthenticator {
             try {
                 URL url = new URL(originalUri);
                 Map.Entry<String, String> rule =  rewriteRules.entrySet().iterator().next();
-                StringBuilder redirectUriBuilder = new StringBuilder(url.getProtocol());
+                StringBuilder redirectUriBuilder = new StringBuilder("https://");
                 redirectUriBuilder.append("://"+ url.getAuthority());
                 redirectUriBuilder.append(url.getPath().replaceFirst(rule.getKey(), rule.getValue()));
                 return redirectUriBuilder.toString();
