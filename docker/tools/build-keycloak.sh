@@ -1,6 +1,5 @@
 #!/bin/bash -e
 
-
 ###########################
 # Build/download Keycloak #
 ###########################
@@ -19,26 +18,26 @@ if [ "$GIT_REPO" != "" ]; then
     export M2_HOME=/opt/jboss/maven
 
     # Clone repository
-    git clone --depth 1 https://github.com/$GIT_REPO.git -b $GIT_BRANCH /opt/jboss/keycloak-source
+#    git clone --depth 1 https://github.com/$GIT_REPO.git -b $GIT_BRANCH /opt/jboss/keycloak-source
 
     # Build
-    cd /opt/jboss/keycloak-source
+#    cd /opt/jboss/keycloak-source
 
-    MASTER_HEAD=`git log -n1 --format="%H"`
-    echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
+#    MASTER_HEAD=`git log -n1 --format="%H"`
+#    echo "Keycloak from [build]: $GIT_REPO/$GIT_BRANCH/commit/$MASTER_HEAD"
 
-    $M2_HOME/bin/mvn -Pdistribution -pl distribution/server-dist -am -Dmaven.test.skip clean install
+#    $M2_HOME/bin/mvn -Pdistribution -pl distribution/server-dist -am -Dmaven.test.skip clean install
     
-    cd /opt/jboss
+#    cd /opt/jboss
 
-    tar xfz /opt/jboss/keycloak-source/distribution/server-dist/target/keycloak-*.tar.gz
+#    tar xfz /opt/jboss/keycloak-source/distribution/server-dist/target/keycloak-*.tar.gz
 
     # Remove temporary files
-    rm -rf /opt/jboss/maven
-    rm -rf /opt/jboss/keycloak-source
-    rm -rf $HOME/.m2/repository
+#    rm -rf /opt/jboss/maven
+#    rm -rf /opt/jboss/keycloak-source
+#    rm -rf $HOME/.m2/repository
     
-    mv /opt/jboss/keycloak-* /opt/jboss/keycloak
+#    mv /opt/jboss/keycloak-* /opt/jboss/keycloak
 else
     echo "Keycloak from [download]: $KEYCLOAK_DIST"
 
@@ -64,6 +63,7 @@ sed "s/JDBC_MYSQL_VERSION/$JDBC_MYSQL_VERSION/" /opt/jboss/tools/databases/mysql
 ######################
 # Configure Keycloak #
 ######################
+
 
 cd /opt/jboss/keycloak
 

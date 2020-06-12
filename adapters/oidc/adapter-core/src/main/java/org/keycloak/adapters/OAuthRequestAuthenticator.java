@@ -140,20 +140,22 @@ public class OAuthRequestAuthenticator {
     }
 
     protected String getRedirectUri(String state) {
-        System.out.println("11111111111111111111111111111111111111111111");
         String url = getRequestUrl();
         log.debugf("callback uri: %s", url);
-      
-        if (!facade.getRequest().isSecure() && deployment.getSslRequired().isRequired(facade.getRequest().getRemoteAddr())) {
+
+        // Force https
+//        if (!facade.getRequest().isSecure() && deployment.getSslRequired().isRequired(facade.getRequest().getRemoteAddr())) {
             int port = sslRedirectPort();
             if (port < 0) {
                 // disabled?
                 return null;
             }
             KeycloakUriBuilder secureUrl = KeycloakUriBuilder.fromUri(url).scheme("https").port(-1);
-            if (port != 443) secureUrl.port(port);
+            if (port != 443 && port != 0) {
+                secureUrl.port(port);
+            }
             url = secureUrl.build().toString();
-        }
+//        }
 
         String loginHint = getQueryParamValue("login_hint");
         url = UriUtils.stripQueryParam(url,"login_hint");
@@ -210,7 +212,6 @@ public class OAuthRequestAuthenticator {
     }
 
     protected AuthChallenge loginRedirect() {
-        System.out.println("0000000000000000");
         final String state = getStateCode();
         final String redirect =  getRedirectUri(state);
         if (redirect == null) {
@@ -387,16 +388,20 @@ public class OAuthRequestAuthenticator {
                 .replaceQueryParam(OAuth2Constants.CODE, null)
                 .replaceQueryParam(OAuth2Constants.STATE, null)
                 .replaceQueryParam(OAuth2Constants.SESSION_STATE, null);
-        return builder.build().toString();
+
+        // Force https
+        KeycloakUriBuilder secureUrl = KeycloakUriBuilder.fromUri(builder.build().toString()).scheme("https").port(-1);
+
+        return secureUrl.build().toString();
     }
     
     private String rewrittenRedirectUri(String originalUri) {
         Map<String, String> rewriteRules = deployment.getRedirectRewriteRules();
-            if(rewriteRules != null && !rewriteRules.isEmpty()) {
+        if (rewriteRules != null && !rewriteRules.isEmpty()) {
             try {
                 URL url = new URL(originalUri);
                 Map.Entry<String, String> rule =  rewriteRules.entrySet().iterator().next();
-                StringBuilder redirectUriBuilder = new StringBuilder("https");
+                StringBuilder redirectUriBuilder = new StringBuilder(url.getProtocol());
                 redirectUriBuilder.append("://"+ url.getAuthority());
                 redirectUriBuilder.append(url.getPath().replaceFirst(rule.getKey(), rule.getValue()));
                 return redirectUriBuilder.toString();
@@ -404,7 +409,8 @@ public class OAuthRequestAuthenticator {
                 log.error("Not a valid request url");
                 throw new RuntimeException(ex);
             }
-            }
+        }
+
         return originalUri;
     }
 
