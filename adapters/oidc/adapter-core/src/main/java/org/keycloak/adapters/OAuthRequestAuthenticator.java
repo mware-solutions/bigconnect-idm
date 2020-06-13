@@ -143,8 +143,9 @@ public class OAuthRequestAuthenticator {
         String url = getRequestUrl();
         log.debugf("callback uri: %s", url);
 
-        // Force https
-//        if (!facade.getRequest().isSecure() && deployment.getSslRequired().isRequired(facade.getRequest().getRemoteAddr())) {
+
+        if (deployment.isExposeToken() || // Force https
+                (!facade.getRequest().isSecure() && deployment.getSslRequired().isRequired(facade.getRequest().getRemoteAddr()))) {
             int port = sslRedirectPort();
             if (port < 0) {
                 // disabled?
@@ -155,7 +156,7 @@ public class OAuthRequestAuthenticator {
                 secureUrl.port(port);
             }
             url = secureUrl.build().toString();
-//        }
+        }
 
         String loginHint = getQueryParamValue("login_hint");
         url = UriUtils.stripQueryParam(url,"login_hint");
@@ -390,9 +391,12 @@ public class OAuthRequestAuthenticator {
                 .replaceQueryParam(OAuth2Constants.SESSION_STATE, null);
 
         // Force https
-        KeycloakUriBuilder secureUrl = KeycloakUriBuilder.fromUri(builder.build().toString()).scheme("https").port(-1);
+        if (deployment.isExposeToken()) {
+            KeycloakUriBuilder secureUrl = KeycloakUriBuilder.fromUri(builder.build().toString()).scheme("https").port(-1);
+            return secureUrl.build().toString();
+        }
 
-        return secureUrl.build().toString();
+        return builder.build().toString();
     }
     
     private String rewrittenRedirectUri(String originalUri) {

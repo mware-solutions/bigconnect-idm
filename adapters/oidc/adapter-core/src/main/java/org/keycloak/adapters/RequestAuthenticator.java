@@ -55,7 +55,6 @@ public abstract class RequestAuthenticator {
     }
 
     public AuthOutcome authenticate() {
-        System.out.println("-1-1-1--1-11");
         if (log.isTraceEnabled()) {
             log.trace("--> authenticate()");
         }
