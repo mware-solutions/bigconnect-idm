@@ -189,11 +189,22 @@
         <url>https://github.com/keycloak/keycloak/tree/master/</url>
     </scm>
 
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>jboss-releases-repository</id>-->
+            <!--<name>JBoss Releases Repository</name>-->
+            <!--<url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>-->
+        <!--</repository>-->
+    <!--</distributionManagement>-->
+
     <distributionManagement>
+        <snapshotRepository>
+            <id>repo.bigconnect.io</id>
+            <url>s3://repo.bigconnect.io/snapshot</url>
+        </snapshotRepository>
         <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+            <id>repo.bigconnect.io</id>
+            <url>s3://repo.bigconnect.io/release</url>
         </repository>
     </distributionManagement>
 
@@ -1496,8 +1507,8 @@
                     <version>${nexus.staging.plugin.version}</version>
                     <extensions>true</extensions>
                     <configuration>
-                        <nexusUrl>https://repository.jboss.org/nexus</nexusUrl>
-                        <serverId>jboss-releases-repository</serverId>
+                        <!--<nexusUrl>https://repository.jboss.org/nexus</nexusUrl>-->
+                        <serverId>repo.bigconnect.io</serverId>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -1608,6 +1619,14 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <extensions>
+            <extension>
+                <groupId>com.github.seahen</groupId>
+                <artifactId>maven-s3-wagon</artifactId>
+                <version>1.3.0</version>
+            </extension>
+        </extensions>
     </build>
 
     <profiles>
