@@ -1,5 +1,5 @@
 body {
-	background: #fff url(../bg.png) no-repeat center bottom fixed;
+	background: url("../mainBg.png") no-repeat center center fixed #21A79C;
 	background-size: cover;
 }
 .welcome-header {
@@ -137,4 +137,8 @@ h3 a:hover .link {
 	.footer img {
 		margin-top: 10px;
 	}
+}
+/* new styles */
+.welcome-header h1{
+    color:#fff;
 }

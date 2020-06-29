@@ -28,7 +28,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
-
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="${resourcesCommonPath}/img/favicon.ico" />
 
     <#if properties.stylesCommon?has_content>
@@ -48,7 +48,7 @@
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
       <div class="welcome-header">
-        <img src="${resourcesPath}/logo.png" alt="${productName}" border="0" />
+        <img src="${resourcesPath}/bigConnect_w.svg" alt="${productName}" border="0" />
         <h1>Welcome to <strong>${productNameFull}</strong></h1>
       </div>
       <div class="row">
@@ -94,7 +94,9 @@
                 </form>
             </#if>
             <div class="welcome-primary-link">
-              <h3><a href="${adminUrl}"><img src="welcome-content/user.png">Administration Console <i class="fa fa-angle-right link" aria-hidden="true"></i></a></h3>
+              <h3><a href="${adminUrl}"><img src="welcome-content/user.svg">
+              Administration Console
+              <i class="fa fa-angle-right link" aria-hidden="true"></i></a></h3>
               <div class="description">
                 Centrally manage all aspects of the ${productNameFull} server
               </div>

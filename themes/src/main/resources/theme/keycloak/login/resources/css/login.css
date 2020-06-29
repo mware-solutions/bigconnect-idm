@@ -1,7 +1,8 @@
 .login-pf body {
-    background: url("../img/keycloak-bg.png") no-repeat center center fixed;
+    background: url("../img/mainBg.png") no-repeat center center fixed #21A79C;
     background-size: cover;
     height: 100%;
+    font-family: 'Raleway', sans-serif;
 }
 
 .alert-error {
@@ -86,9 +87,9 @@ a#kc-current-locale-link::after {
 }
 
 div.kc-logo-text {
-    background-image: url(../img/keycloak-logo-text.png);
+    background-image: url(../img/bigConnect_w.svg);
     background-repeat: no-repeat;
-    height: 63px;
+    height: 100px;
     width: 300px;
     margin: 0 auto;
 }
@@ -517,6 +518,7 @@ a.zocial  {
 
 .login-pf-page .card-pf{
   margin-bottom: 10px;
+  padding:50px;
 }
 
 #kc-form-login div.form-group:last-of-type,
@@ -532,4 +534,77 @@ a.zocial  {
 form#kc-select-back-form div.login-pf-social-section {
     padding-left: 0px;
     border-left: 0px;
+}
+
+/*new styles*/
+input.form-control{
+    border:1px solid #c4c4c4;
+    padding-left:35px;
+}
+input.form-control:hover{
+    border:1px solid #21A79C;
+}
+input.form-control:focus{
+    border:1px solid #21A79C;
+    box-shadow: 0px 0px 0px 3px rgba(33,167,156,0.2);
+}
+#kc-form-buttons{
+    position:relative;
+}
+#kc-form-buttons:before{
+    content:" ";
+    background:#21A79C;
+    width:15px;
+    height:7px;
+    position:absolute;
+    left:0; right:0; margin:auto;
+}
+#kc-form-buttons input{
+    border:1px solid #21A79C;
+    background:#fff;
+    color:#333;
+    box-shadow:none;
+    font-weight:normal;
+    text-transform:uppercase;
+    padding:10px;
+}
+#kc-form-buttons input:focus{
+    border:1px solid #21A79C;
+}
+#kc-form-buttons:hover:before {
+    background:#fff;
+}
+#kc-form-buttons:hover input{
+    background:#21A79C;
+    color:#fff;
+}
+.control-label{
+    font-weight:300;
+    text-transform:uppercase;
+    color:#c4c4c4;
+}
+#kc-page-title{
+    color:#333;
+    text-transform:uppercase;
+    padding:20px 0;
+    text-align:left
+}
+input:-webkit-autofill {
+   -webkit-box-shadow:0 0 0 50px white inset;
+    -webkit-text-fill-color: #c4c4c4;
+    padding-left:10px;
+}
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(33,167,156,0.2), 0 0 0 50px white inset ;
+    -webkit-text-fill-color: #21A79C;
+    padding-left:10px;
+}
+#username{
+    background: url("../img/user.svg") no-repeat 10px 10px;
+    background-size:15px 15px;
+}
+#password{
+    background: url("../img/pass.svg") no-repeat 10px 10px;
+    background-size:15px 15px;
+
 }
