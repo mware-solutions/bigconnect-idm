@@ -1,8 +1,10 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
 .login-pf body {
     background: url("../img/mainBg.png") no-repeat center center fixed #21A79C;
     background-size: cover;
     height: 100%;
-    font-family: 'Raleway', sans-serif;
 }
 
 .login-pf {
