@@ -1,3 +1,6 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
 html,body {
     height: 100%;
 }
@@ -200,7 +203,7 @@ th.w-40 {
 
 
 .sidebar-pf-left{
-  background: #292e34;
+  background: #333;
 }
 
 .sidebar-pf .nav-pills > li a i, .sidebar-pf .nav-pills > li a span{
@@ -232,14 +235,32 @@ th.w-40 {
 
 .sidebar-pf .nav-pills > li.active > a {
   color: #fff;
-  background: #393f44!important;
-  border-bottom: 1px solid #000!important;
-  border-top: 1px solid #000!important;
-  border-left-color: #39a5dc!important;
+  border-left-color: #E9E10A!important;
+  background:none!important;
+  border-top:none!important;
+  border-bottom:none!important;
 }
-
+.sidebar-pf .nav-pills > li > a{
+  border-top:none!important;
+  border-bottom:none!important;
+  border-left-color: #333!important;
+}
+.sidebar-pf .nav-pills > li > a:hover{
+    background:#333!important;
+    border-left-color: #E9E10A!important;
+}
+.sidebar-pf .nav-pills > li a:hover i, .sidebar-pf .nav-pills > li a:hover span{
+  color: #E9E10A;
+}
 .sidebar-pf .nav-pills > li.active a i, .sidebar-pf .nav-pills > li.active a span{
-  color: #39a5dc;
+  color: #E9E10A;
+}
+.sidebar-pf .nav-category h2{
+    text-transform:uppercase;
+}
+.realm-selector h2{
+    text-transform:uppercase;
+    font-size:12px!important;
 }
 
 /*********** Realm selector ***********/
@@ -258,23 +279,36 @@ th.w-40 {
   left: 0;
   right: 0;
   z-index: 999;
-  background: #fff;
+  background: #333;
 }
 
 .realm-selector:hover .realm-dropmenu{
   display: block;
 }
-
+.realm-dropmenu ul li a{
+    color:#E9E10A;
+    border-bottom:1px solid #4e4e4e!important;
+}
 .realm-add{
   padding: 10px;
 }
-
+.realm-add a{
+    background:#21A79C!important;
+    text-transform:uppercase;
+    font-weight:200;
+    padding:1rem;
+    border:none;
+}
+.realm-add a:hover{
+    background:#E9E10A!important;
+    color:#333;
+}
 .realm-selector h2{
   font-size: 16px;
   line-height: 60px;
   padding: 0 20px;
   margin: 0;
-  border-bottom: 1px solid #d5d5d6;
+  border-bottom: 1px solid #4e4e4e;
 }
 
 .realm-selector h2 i{
@@ -307,14 +341,17 @@ th.w-40 {
 
 .navbar-pf{
   border-top: none!important;
+  background:#fff;
 }
-
+.navbar-pf .navbar-header{
+  border:none;
+}
 .navbar-pf .navbar-brand {
   padding: 0;
   height: 56px;
   line-height: 56px;
   background-position: center center;
-  background-image: url('../img/keyclok-logo.png');
+  background-image: url('../img/bigConnect.svg');
   background-size: 148px 30px;
   background-repeat: no-repeat;
   width: 148px;
@@ -322,8 +359,13 @@ th.w-40 {
 
 .navbar-pf .navbar-utility .dropdown-toggle {
     padding: 23px !important;
-}
+    color:#333!important;
+    border:none;
 
+}
+.navbar-pf .navbar-utility>li.open>a, .navbar-pf .navbar-utility>li.open>button{
+    color:#333!important;
+}
 .clickable {
     cursor: pointer;
 }
@@ -478,3 +520,133 @@ table.credential-data-table td.key {
     font-weight: bold;
 }
 
+/* Form control */
+.form-control{
+    border:1px solid #c4c4c4;
+}
+.form-control:hover{
+    border:1px solid #21A79C;
+}
+.form-control:focus{
+    border:1px solid #21A79C;
+    box-shadow: 0px 0px 0px 3px rgba(33,167,156,0.2);
+}
+/* onoffswitch */
+.onoffswitch:hover{
+    outline:none;
+}
+.onoffswitch:focus{
+    outline:none;
+}
+
+.onoffswitch-inner{
+
+}
+.onoffswitch-active{
+    border-color:#21A79C!important;
+    background:#21A79C!important;
+    margin-top:1px;
+    font-weight:200!important;
+}
+.onoffswitch-inactive{
+    border-color:#f3f3f3!important;
+    background: #f3f3f3!important;
+    margin-top:1px;
+    font-weight:300!important;
+}
+.onoffswitch-switch{
+    background:#e2e0e0!important;
+    border:none!important;
+}
+.onoffswitch .onoffswitch-label {
+    border:none;
+}
+/* Buttons */
+.btn-primary{
+    background:#fff;
+    border-color:#21A79C!important;
+    box-shadow:none;
+    color:#333;
+    position:relative;
+    padding:10px 20px;
+    font-weight:200;
+    text-transform:uppercase;
+}
+.btn-primary:before{
+    content:"";
+    background:#21A79C;
+    width:10px;
+    height:5px;
+    position:absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    top:0;
+}
+.btn-primary:hover{
+    background:#21A79C;
+    color:#fff;
+}
+.btn-primary:hover:before{
+    background:#fff;
+}
+.btn-primary[disabled="disabled"]{
+    border-color:#d9d9d9!important;
+}
+.btn-primary[disabled="disabled"]:before{
+    content:"";
+    background:#d9d9d9;
+    width:10px;
+    height:5px;
+    position:absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    top:0;
+}
+.btn-default{
+    background:#fff;
+    border-color:#d9d9d9!important;
+    box-shadow:none;
+    color:#333;
+    position:relative;
+    padding:10px 20px;
+    font-weight:200;
+    text-transform:uppercase;
+}
+.btn-default:before{
+    content:"";
+    background:#d9d9d9;
+    width:10px;
+    height:5px;
+    position:absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    top:0;
+}
+
+/* Tabs */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    color:#21A79C;
+}
+.nav-tabs-pf>li.active>a:active:before, .nav-tabs-pf>li.active>a:before, .nav-tabs-pf>li.active>a:focus:before, .nav-tabs-pf>li.active>a:hover:before{
+    background:#21A79C;
+}
+.control-label a{
+   color:#21A79C;
+   font-weight:400!important;
+}
+.form-group .control-label{
+    font-weight:400!important;
+}
+/* table links */
+table tr td a{
+     color:#21A79C;
+}
+
+/* dropdown-menu */
+.dropdown-menu li a:hover{
+    background:#21A79C!important;
+    color:#fff;
+}
