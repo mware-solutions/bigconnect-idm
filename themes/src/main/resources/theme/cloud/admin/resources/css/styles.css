@@ -293,15 +293,38 @@ th.w-40 {
   padding: 10px;
 }
 .realm-add a{
-    background:#21A79C!important;
     text-transform:uppercase;
     font-weight:200;
     padding:1rem;
     border:none;
+    color:#E9E10A;
+    font-size:12px;
+    position:relative;
+    padding-left:23px;
+}
+.realm-add a:before{
+    content:"+";
+    font-weight:700;
+    padding-right:15px;
+    font-size:18px;
+    position:absolute;
+    left:7px; top:5px;
 }
 .realm-add a:hover{
-    background:#E9E10A!important;
-    color:#333;
+    color:#fff;
+    text-decoration:none;
+}
+.realm-add a:focus{
+    color:#fff!important;
+}
+.realm-selector ul li a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:200!important;
+    border-color:#4e4e4e!important;
+}
+.realm-selector ul li a:hover{
+    color:#E9E10A;
 }
 .realm-selector h2{
   font-size: 16px;
@@ -361,6 +384,10 @@ th.w-40 {
     padding: 23px !important;
     color:#333!important;
     border:none;
+
+}
+.navbar-pf .navbar-utility .dropdown-toggle:hover {
+    color:#21A79C!important;
 
 }
 .navbar-pf .navbar-utility>li.open>a, .navbar-pf .navbar-utility>li.open>button{
@@ -649,4 +676,13 @@ table tr td a{
 .dropdown-menu li a:hover{
     background:#21A79C!important;
     color:#fff;
+}
+.dropdown-menu{
+    border:1px solid #d9d9d9!important;
+}
+.navbar-pf .navbar-utility .open .dropdown-menu{
+    right:20px;
+}
+.import-file:before{
+    content:none;
 }

@@ -56,7 +56,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container mt-3">
         <div class="bs-sidebar col-sm-3">
             <ul>
                 <li class="<#if active=='account'>active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
@@ -69,8 +69,8 @@
                 <#if realm.userManagedAccessAllowed && features.authorization><li class="<#if active=='authorization'>active</#if>"><a href="${url.resourceUrl}">${msg("myResources")}</a></li></#if>
             </ul>
         </div>
-
-        <div class="col-sm-9 content-area">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-8 content-area">
             <#if message?has_content>
                 <div class="alert alert-${message.type}">
                     <#if message.type=='success' ><span class="pficon pficon-ok"></span></#if>

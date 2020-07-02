@@ -3,17 +3,14 @@
     <div class="realm-selector">
       <h2 data-ng-show="current.realm">{{current.realm.realm|capitalize}} <i class="fa fa-angle-down"></i></h2>
       <h2 data-ng-hide="current.realm">{{:: 'select-realm' | translate}} <i class="fa fa-angle-down"></i></h2>
-      <div class="realm-dropmenu">
-        <!-- if it has more than 5 it generates a scroll bar -->
         <ul>
             <li data-ng-repeat="realm in current.realms | orderBy:'realm'" data-ng-if="realm.realm != current.realm.realm">
                 <a href="" ng-click="changeRealm(realm.realm)">{{realm.realm|capitalize}}</a>
             </li>
         </ul>
-        <div class="realm-add" data-ng-show="auth.user && access.createRealm">
-          <a href="#/create/realm" class="btn btn-sm btn-block btn-primary">{{:: 'add-realm' | translate}}</a>
-        </div>
-      </div>
+        <h3 class="realm-add" data-ng-show="auth.user && access.createRealm">
+            <a href="#/create/realm" class="">{{:: 'add-realm' | translate}}</a>
+        </h3>
     </div>
 
     <div class="nav-category" data-ng-show="current.realm && (access.viewRealm || access.queryClients || access.viewIdentityProviders)">

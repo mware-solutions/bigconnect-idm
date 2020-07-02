@@ -1,5 +1,6 @@
 *{
     font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
 }
 html {
     height: 100%;
@@ -42,21 +43,20 @@ header .navbar {
 
 .navbar-pf .navbar-utility > li > a {
     color: #333 !important;
-    padding-bottom: 12px;
-    padding-top: 11px;
+
     border-left: medium none;
 }
-
+.navbar-pf .navbar-utility > li > a:hover{
+    color:#21A79C!important;
+}
 .container {
     height: 100%;
 }
 
 .content-area {
     background-color: #fff;
-    border-color: #CECECE;
-    border-style: solid;
-    border-width: 0 1px;
-    padding: 0 30px;
+    border:1px solid #d9d9d9;
+    padding: 0 30px 15px 30px;
 }
 
 .margin-bottom {
@@ -66,10 +66,8 @@ header .navbar {
 /* Sidebar */
 
 .bs-sidebar {
-    background-color: #f9f9f9;
-    padding-top: 44px;
-    padding-right: 0;
-    padding-left: 0;
+    background-color: #333;
+    padding: 45px 0 25px 0;
     z-index: 20;
 }
 .bs-sidebar ul {
@@ -84,26 +82,25 @@ header .navbar {
 .bs-sidebar ul li a {
     font-size: 14px;
     padding-left: 25px;
-    color: #4d5258;
+    color: #fff;
     line-height: 28px;
     display: block;
-    border-width: 1px 0 1px 1px;
-    border-style: solid;
-    border-color: #f9f9f9;
+    border-bottom:1px solid #4e4e4e;
+    font-weight:300;
+    border-left:5px solid #333;
+}
+.bs-sidebar ul li:last-child a{
+    border-bottom:none;
 }
 .bs-sidebar ul li a:hover,
 .bs-sidebar ul li a:focus {
     text-decoration: none;
-    color: #777777;
-    border-right: 2px solid #aaa;
+    color: #E9E10A;
+    border-left: 5px solid #E9E10A;
 }
 .bs-sidebar ul li.active a {
-    background-color: #c7e5f0;
-    border-color: #56bae0;
-    font-weight: bold;
-    background-image: url(../img/icon-sidebar-active.png);
-    background-repeat: no-repeat;
-    background-position: right center;
+    border-left: 5px solid #E9E10A;
+    color:#E9E10A;
 }
 
 .bs-sidebar ul li.active a:hover {
@@ -216,6 +213,12 @@ ol li img {
     margin-top: 15px;
     margin-bottom: 5px;
     border: 1px solid #eee;
+}
+ol li p a{
+    color:#21A79C;
+}
+ol li p a:hover{
+    color:#21A79C;
 }
 
 hr + .form-horizontal {
@@ -409,4 +412,25 @@ table tr td a{
 .dropdown-menu li a:hover{
     background:#21A79C!important;
     color:#fff;
+}
+/* margins */
+.mt-3{
+    margin-top:3rem;
+}
+
+/* auto fill */
+
+input:-webkit-autofill {
+   -webkit-box-shadow:0 0 0 50px white inset;
+    -webkit-text-fill-color: #c4c4c4;
+    padding-left:10px;
+}
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(33,167,156,0.2), 0 0 0 50px white inset ;
+    -webkit-text-fill-color: #21A79C;
+    padding-left:10px;
+}
+
+#logout-all-sessions{
+    margin-bottom:15px;
 }
