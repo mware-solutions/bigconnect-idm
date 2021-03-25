@@ -21,11 +21,11 @@ import org.keycloak.adapters.spi.AuthenticationError;
 import org.keycloak.adapters.spi.HttpFacade;
 import org.keycloak.adapters.spi.LogoutError;
 import org.keycloak.common.util.MultivaluedHashMap;
+import org.keycloak.common.util.ServerCookie;
 import org.keycloak.common.util.UriUtils;
 
 import javax.security.cert.X509Certificate;
 import javax.servlet.http.HttpServletResponse;
-
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -210,13 +210,10 @@ public class JettyHttpFacade implements HttpFacade {
 
         @Override
         public void setCookie(String name, String value, String path, String domain, int maxAge, boolean secure, boolean httpOnly) {
-            javax.servlet.http.Cookie cookie = new javax.servlet.http.Cookie(name, value);
-            if (domain != null) cookie.setDomain(domain);
-            if (path != null) cookie.setPath(path);
-            if (secure) cookie.setSecure(true);
-            if (httpOnly) cookie.setHttpOnly(httpOnly);
-            cookie.setMaxAge(maxAge);
-            response.addCookie(cookie);
+            StringBuffer cookieBuf = new StringBuffer();
+            ServerCookie.appendCookieValue(cookieBuf, 0, name, value, path, domain, null, maxAge, true, httpOnly, ServerCookie.SameSiteAttributeValue.NONE);
+            String cookieString = cookieBuf.toString();
+            response.addHeader("Set-Cookie", cookieString);
         }
 
         @Override
